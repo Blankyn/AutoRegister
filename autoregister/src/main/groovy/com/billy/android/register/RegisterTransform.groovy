@@ -23,16 +23,26 @@ class RegisterTransform extends Transform {
     }
 
 
+    /**
+     * 表示当前Transform名称，这个名称会被用来创建目录，它会出现在app/build/intermediates/transforms目录下
+     */
     @Override
     String getName() {
         return "auto-register"
     }
 
+    /**
+     * 需要处理的数据类型，用于确定我们需要对哪些类型的结果进行修改，比如class，资源文件等。
+     * @return {@link TransformManager#CONTENT_CLASS} 表示需要处理java的class文件
+     */
     @Override
     Set<QualifiedContent.ContentType> getInputTypes() {
         return TransformManager.CONTENT_CLASS
     }
 
+    /**
+     * 表示Transform要操作的内容范围
+     */
     @Override
     Set<QualifiedContent.Scope> getScopes() {
         return TransformManager.SCOPE_FULL_PROJECT
@@ -151,7 +161,7 @@ class RegisterTransform extends Transform {
         project.logger.error("register cost time: " + (finishTime - time) + " ms")
     }
 
-    void scanJar(JarInput jarInput, TransformOutputProvider outputProvider, CodeScanProcessor scanProcessor) {
+     void scanJar(JarInput jarInput, TransformOutputProvider outputProvider, CodeScanProcessor scanProcessor) {
 
         // 获得输入文件
         File src = jarInput.file
