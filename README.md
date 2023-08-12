@@ -1,6 +1,6 @@
 # 自动注册插件
 
-最新版本:[![Download](https://api.bintray.com/packages/hellobilly/android/AutoRegister/images/download.svg)](https://bintray.com/hellobilly/android/AutoRegister/_latestVersion)
+最新版本: [详见](https://s01.oss.sonatype.org/content/repositories/releases/io/github/blankyn/autoregister/)
 
 [原理说明](https://juejin.im/post/5a2b95b96fb9a045284669a9)
 
@@ -51,15 +51,16 @@ public class CategoryManager {
 ```groovy
 buildscript {
     repositories {
-        jcenter()
+        maven { url 'https://s01.oss.sonatype.org/content/repositories/releases/' }
+      
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0'
-        classpath 'com.billy.android:autoregister:x.x.x'
+        classpath 'com.android.tools.build:gradle:4.2.2'
+        classpath 'io.github.blankyn:autoregister:1.4.6'
     }
 }
 ```
-    
+
  - 在application的build.gradle中添加配置信息：
  ```groovy
 apply plugin: 'auto-register'
@@ -84,8 +85,13 @@ autoregister {
         ]
     ]
 }
-```
+ ```
 更新日志：
+
+### 2023-08-12 V1.4.6
+
+- 解决原AutoRegister和kotlin 1.4.0+并不兼容导致的[(This feature requires ASM6)错误](https://github.com/luckybilly/AutoRegister/issues/29)
+- 解决原AutoRegister和gson 1.4.0+并不兼容导致的[(Execution failed for task ':app:transformClassesWithAuto-registerForDebug'.)错误](https://github.com/luckybilly/AutoRegister/issues/23)
 
 ### 2018-08-18 V1.4.1
 
@@ -125,6 +131,7 @@ autoregister {
 ### 2017-11-21 V1.0.4
     生成的注册代码不再局限于static块中，可以在任意方法(codeInsertToMethodName)中
     需要注意： codeInsertToMethodName 与 registerMethodName 必须同时为static或非static
+
  
- 
-    
+
+​    
