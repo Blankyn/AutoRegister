@@ -8,7 +8,7 @@ import java.util.Set;
  * @since 17/9/20 16:56
  */
 public class CategoryManager {
-    private static HashMap<String, ICategory> CATEGORIES = new HashMap<>();
+    private final static HashMap<String, ICategory> CATEGORIES = new HashMap<>();
 
     static void register(ICategory category) {
         if (category != null) {
