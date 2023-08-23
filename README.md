@@ -1,6 +1,5 @@
 # 自动注册插件
-
-最新版本: [详见](https://s01.oss.sonatype.org/content/repositories/releases/io/github/blankyn/autoregister/)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.blankyn/autoregister/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.blankyn/autoregister)
 
 [原理说明](https://juejin.im/post/5a2b95b96fb9a045284669a9)
 
@@ -133,5 +132,6 @@ autoregister {
     需要注意： codeInsertToMethodName 与 registerMethodName 必须同时为static或非static
 
  
+
 
 ​    
