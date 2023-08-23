@@ -2,16 +2,19 @@ apply plugin: 'groovy'
 
 apply from: 'bintray.gradle'
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
     //gradle sdk
     implementation gradleApi()
     //groovy sdk
     implementation localGroovy()
+
+    implementation 'com.android.tools.build:gradle:4.2.2'
+
 }
 
-repositories {
-    mavenCentral()
-}
-dependencies {
-    implementation 'com.android.tools.build:gradle:4.2.2'
-}
+
+

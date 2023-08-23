@@ -15,9 +15,9 @@ def artifact_version = '1.4.6' //-SNAPSHOT
 // 唯一包名，比如compile 'com.yanzhenjie:andserver:1.0.1'中的com.yanzhenjie就是这里配置的。
 def artifact_group = 'io.github.blankyn'
 def artifact_id = 'autoregister'
-group = artifact_group
-version = artifact_version
-def debug_flag = true //true: 发布到本地maven仓库， false： 发布到maven私服
+def packaging="jar"
+
+def debug_flag = false //true: 发布到本地maven仓库， false： 发布到maven私服
 
 
 uploadArchives {
@@ -25,7 +25,8 @@ uploadArchives {
         mavenDeployer {
             //deploy到maven仓库
             if (debug_flag) {
-                repository(url: uri('../repo-local')) //deploy到本地仓库
+//                repository(url: uri('../repo-local')) //deploy到本地仓库
+                repository(url: uri('/Volumes/document/repo-local')) //deploy到本地仓库
             } else {//deploy到maven私服中
                 repository(url: artifactory_release_url) {
                     authentication(userName: artifactory_user, password: artifactory_password)
@@ -37,8 +38,8 @@ uploadArchives {
 
             pom.groupId = artifact_group
             pom.artifactId = artifact_id
-            pom.version = artifact_version
-            pom.packaging = 'jar'
+            pom.version = version
+            pom.packaging = packaging
             pom.project {
                 licenses {
                     license {
