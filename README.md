@@ -54,8 +54,8 @@ buildscript {
       
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.2'
-        classpath 'io.github.blankyn:autoregister:1.4.6'
+        classpath 'com.android.tools.build:gradle:3.5.4'
+        classpath 'io.github.blankyn:autoregister:1.4.7'
     }
 }
 ```
@@ -86,6 +86,12 @@ autoregister {
 }
  ```
 更新日志：
+
+### 2023-08-24 V1.4.7
+
+- 恢复gradle-6.5-all
+- 恢复ASM6
+- 恢复com.android.tools.build:gradle:3.5.4
 
 ### 2023-08-12 V1.4.6
 
