@@ -106,7 +106,7 @@ class CodeInsertProcessor {
     private byte[] doGenerateCode(InputStream inputStream) {
         ClassReader cr = new ClassReader(inputStream)
         ClassWriter cw = new ClassWriter(cr, 0)
-        ClassVisitor cv = new MyClassVisitor(Opcodes.ASM7, cw)
+        ClassVisitor cv = new MyClassVisitor(Opcodes.ASM6, cw)
         cr.accept(cv, ClassReader.EXPAND_FRAMES)
         return cw.toByteArray()
     }
@@ -127,7 +127,7 @@ class CodeInsertProcessor {
             MethodVisitor mv = super.visitMethod(access, name, desc, signature, exceptions)
             if (name == extension.initMethodName) { //注入代码到指定的方法之中
                 boolean _static = (access & Opcodes.ACC_STATIC) > 0
-                mv = new MyMethodVisitor(Opcodes.ASM7, mv, _static)
+                mv = new MyMethodVisitor(Opcodes.ASM6, mv, _static)
             }
             return mv
         }

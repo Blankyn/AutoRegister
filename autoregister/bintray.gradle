@@ -11,7 +11,7 @@ def artifactory_snapshot_url = 'https://s01.oss.sonatype.org/content/repositorie
 def artifactory_release_url = 'https://s01.oss.sonatype.org/content/repositories/releases/'
 
 // 项目引用的版本号，比如compile 'com.yanzhenjie:andserver:1.0.1'中的1.0.1就是这里配置的。
-def artifact_version = '1.4.6' //-SNAPSHOT
+def artifact_version = '1.4.7' //-SNAPSHOT
 // 唯一包名，比如compile 'com.yanzhenjie:andserver:1.0.1'中的com.yanzhenjie就是这里配置的。
 def artifact_group = 'io.github.blankyn'
 def artifact_id = 'autoregister'
@@ -38,7 +38,7 @@ uploadArchives {
 
             pom.groupId = artifact_group
             pom.artifactId = artifact_id
-            pom.version = version
+            pom.version = artifact_version
             pom.packaging = packaging
             pom.project {
                 licenses {
